@@ -2,56 +2,83 @@
      box-sizing: border-box;
 }
 body{
-     width: 100vu;
-     height: 100vh;
      margin: 0;
      padding: 0;
      font-size: 16px;
      font-family: 'Titillium Web', sans-serif;
      line-height: 1.2;
+     
 }
-
 
 #wrapper{
-     padding: 100px 0px 70px 0px;
-     display: block;
+    position: relative;
+     padding: 100px 20px 70px 20px;
+     display: flex;
+     overflow: hidden;
      width: 100%;
      height: 100%;
-     background-image: url(../images/top-logo.png), url(../images/bottom-logo.png), url(../images/background.jpg);
-     background-size: auto, auto, cover;
+     background-image: url(../images/background.jpg);
+     background-size: 100% 100%;
      background-repeat: no-repeat;
-     background-position: top, bottom;
+     z-index: 0;
+}
+#wrapper:before{
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../images/top-logo.png), url(../images/bottom-logo.png);
+    background-size: auto, auto;
+    background-repeat: no-repeat;
+    background-position: top, right 10% bottom 50px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: opacity(40%);
+}
+#left{
+    flex: 50%;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+#right{
+    flex: 50%;
+    margin-bottom: 50px;
+    z-index: 1;
 }
 .header{
-     margin: 0px 20px 0px 50px;
+     margin: 0px 20px 0px 40px;
      font-size: 32px;
      font-weight: normal;
-     margin-bottom: 20px;
      color: white;
      text-align: center;
+     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.7);
 }
-#box{
-    width: 50%;
-    padding: 20px;
+.box{
+    width: 90%;
+    min-width: 330px;
+    padding: 10px;
     border-radius: 5px;
-    margin-bottom: 40px;
+    margin: 15px auto;
 }
 form{
-     margin: 0 auto;
-     width: 300px;
-     border: 12px solid rgba(29, 29, 29, 0.07);
+     margin: 20px auto;
+     box-shadow: 0px 0px 5px 20px rgba(29, 29, 29, 0.25);
      background-color: white;
      border-radius: 5px;
      padding: 20px;
 }
 input{
      background-color: white;
+     margin: 10px 0px;
      border: 1px solid rgb(198,198,198);
      padding: 12px 0px;
-     margin-bottom: 20px;
      border-radius: 4px;
      display: block;
      width: 100%;
+     font-size: 20px;
+     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.7)
 }
 input[type="text"]{
      background: url(../images/user-icon.png);
@@ -64,7 +91,7 @@ input[type="password"]{
      background: url(../images/lock-icon.png);
      background-repeat: no-repeat;
      background-position: 8px center; 
-     background-size: 26px; 
+     background-size: 22px; 
 
 }
 input[type="email"]{
@@ -73,8 +100,15 @@ input[type="email"]{
      background-position: 8px center; 
      background-size: 26px; 
 }
+input[type="tel"]{
+    background: url(../images/mobile-icon.png);
+    background-repeat: no-repeat;
+    background-position: 12px center; 
+    background-size: 18px; 
+}
 input[type="checkbox"]{
      display: inline;
+     margin: 0px;
      background: steelblue;
      border: 1px solid rgb(198, 198, 198);
      width: 25px;
@@ -82,58 +116,83 @@ input[type="checkbox"]{
      background: green;
      border-radius: 4px;
 }
-[placeholder],[checkbox]{
-     padding-left: 46px;
-     font-weight: lighter;
-     color: rgb(175, 175, 175)
+input[type="checkbox"]::after{
+    background: rgb(162, 32, 42);
+    content: "";
+    width: 30px;
 }
-[checkbox]{
-     border: 1px solid rgb(198, 198, 198);
-     width: 25px;
-     height: 25px;
-     background: green;
-     border-radius: 4px;
+input[placeholder],[checkbox]{
+     padding-left: 46px;
+}
+input::placeholder{
+    color: grey;
+    font-weight: lighter;
+}
+.label{
+    font-size: 13px;
+    vertical-align: text-top;
 }
 
+button{
+    font-size: 22px;
+    color: white;
+    margin: 10px 0px;
+    padding: 10px 0px;
+    border-radius: 4px;
+    width: 100%;
+}
 button.green{
-     font-size: 24px;
-     font-weight: white;
      background: rgb(159,213,58);
      border: 1px solid rgb(144, 202, 109);
-     padding: 10px 0px;
-     border-radius: 4px;
-     width: 100%;
 }
 button.light-green{
-     font-size: 24px;
-     font-weight: white;
      background: rgb(195, 223, 161);
      border: 1px solid rgb(144, 202, 109);
-     padding: 10px 0px;
-     border-radius: 4px;
-     width: 100%;
 }
 button.red{
-     font-size: 24px;
-     font-weight: white;
      background: rgb(245, 83, 101);
      border: 1px solid rgb(162, 32, 42);
-     padding: 10px 0px;
-     border-radius: 4px;
-     width: 100%;
+}
+button.green:hover {
+    color: rgb(159,213,58);
+    background: white; 
+}
+button.light-green:hover{
+    color: rgb(195, 223, 161);
+    background: white;
+}
+button.red:hover{
+    color: rgb(245, 83, 101);
+    background: white;
+}
+ 
+/* Send Email */
+
+.textarea-send-email{
+    font-size: 18px;
+    border-radius: 4px;
+    width: 100%;
+    resize: none;
+}
+.sign-in{
+    width: 50%;
+    float: right;
 }
 
-
-
-
-
-#right{
-     width: 300px; 
+.table::after{
+    content: "";
+    display: table;
+    clear: both;
 }
 
-
-
-
-
-
-
+input.checkbox-sign-in{
+    margin-top: 20px;
+}
+.recover-done{
+    width: 43%;
+    float: right;
+}
+.recover-send{
+    width: 43%;
+    float: left;
+}
