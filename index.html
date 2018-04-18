@@ -20,8 +20,8 @@
         <input type="password" name="password" placeholder="Password">
         <input type="password" name="password2" placeholder="Confirm password">
         <input type="email" name="email" placeholder="E-mail">
-        <input type="checkbox" name="checkbox"><label class="label">I have read and accept the terms of use</label>
-        <button class="green">Sign up</button>
+        <input type="checkbox" name="checkbox" id="register-check"><label class="label" for="register-check">I have read and accept the terms of use</label>
+        <button type="submit" class="green">Sign up</button>
       </form>
     </div>
 
@@ -30,9 +30,9 @@
       <form action="">
         <input type="text" name="text" placeholder="Your Name">
         <input type="password" name="password" placeholder="Your Email">
-        <textarea class="textarea-send-email" cols="10" rows="10" placeholder="Type ypour message ..."></textarea>
-        <input type="checkbox" name="checkbox"><label class="label">Sent a copy to my Email</label>
-        <button class="green">Send Email</button>
+        <textarea class="textarea-send-email" cols="10" rows="10" placeholder="Type your message ..."></textarea>
+        <input type="checkbox" name="checkbox" id="send-check"><label class="label" for="send-check">Sent a copy to my Email</label>
+        <button type="submit" class="green">Send Email</button>
       </form>
     </div>
   </div> <!-- LEFT DIV-->
@@ -44,8 +44,8 @@
       <form action="" class="table">
         <input type="text" name="text" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
-        <input type="checkbox" name="checkbox" class="checkbox-sign-in"><label class="label label-sign-in">Remember me</>
-        <button class="green sign-in">Sign In</button>
+        <input type="checkbox" name="checkbox" class="checkbox-sign-in" id="signin-check"><label class="label label-sign-in" for="signin-check">Remember me</label>
+        <button type="submit" class="green sign-in">Sign In</button>
       </form>
     </div>
 
@@ -54,8 +54,8 @@
         <form action="" class="table">
           <input type="email" name="email" placeholder="Enter your Email">
           <input type="tel" name="tel" placeholder="Enter your Phone number">
-           <button class="green recover-send">Send</button>
-           <button class="light-green recover-done">Done</button>
+           <button type="submit" class="green recover-send">Send</button>
+           <button type="button" class="light-green recover-done">Done</button>
         </form>
       </div>
 
@@ -63,8 +63,8 @@
           <h2 class="header">Subscribe Form</h2>
           <form action="" class="table">
             <input type="email" name="email" placeholder="Enter your Email">
-             <button class="green recover-send">Subscribe</button>
-             <button class="red recover-done">No, Thanks</button>
+             <button type="submit" class="green recover-send">Subscribe</button>
+             <button type="reset" class="red recover-done">No, Thanks</button>
           </form>
         </div>
 
